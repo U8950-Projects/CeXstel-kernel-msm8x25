@@ -91,10 +91,9 @@ static struct pll_config pll4_cfg_tbl[] = {
         [3] = { 73, 0, 1 }, /* 1401.6 MHz */
         [4] = { 60, 0, 1 }, /* 1152 MHz */
         [5] = { 57, 1, 2 }, /* 1104 MHz */
-#ifdef CONFIG_CEASTEL_OC
         [6] = { 54, 1, 2 }, /* 1046.7 MHz */
         [7] = { 65, 0, 1 }, /* 1248 MHz */
-#endif
+        [8] = { 63, 0, 1 }, /* 1200 MHz */
 };
 
 struct clock_state {
@@ -402,7 +401,7 @@ static struct clkctl_acpu_speed pll0_960_pll1_245_pll2_1200_pll4_1152[] = {
         { 0, 600000, ACPU_PLL_2, 2, 1, 75000, 3, 4, 160000 },
         { 1, 700800, ACPU_PLL_4, 6, 0, 87500, 3, 4, 160000, &pll4_cfg_tbl[0]},
         { 1, 1008000, ACPU_PLL_4, 6, 0, 126000, 3, 5, 200000, &pll4_cfg_tbl[1]},
-        { 1, 1152000, ACPU_PLL_4, 6, 0, 151200, 3, 6, 200000, &pll4_cfg_tbl[4]},
+        { 1, 1200000, ACPU_PLL_4, 6, 0, 156000, 3, 6, 200000, &pll4_cfg_tbl[8]},
         { 0 }
 };
 
@@ -541,7 +540,6 @@ static struct pll_freq_tbl_map acpu_freq_tbl_list[] = {
         PLL_CONFIG(960, 196, 1200, 1104),
         PLL_CONFIG(960, 245, 1200, 1401),
         PLL_CONFIG(960, 196, 1200, 1401),
-        { 0, 0, 0, 0, 0 }
 };
 
 #ifdef CONFIG_CPU_FREQ_MSM
